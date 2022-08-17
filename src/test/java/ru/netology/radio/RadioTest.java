@@ -17,9 +17,9 @@ public class RadioTest {
             "0,13",
             "0,0"
     })
-    public void shouldSetStation(int expected, int numberStation) {
+    public void shouldSetStation(int expected, int currentStation) {
 
-        station.setNumberStation(numberStation);
+        station.setNumberStation(currentStation);
 
         int actual = station.getNumberStation();
 
@@ -34,24 +34,20 @@ public class RadioTest {
             "0,13",
             "0,0"
     })
-    public void shouldSetStationA(int expected, int numberStation) {
+    public void shouldSetStationA(int expected, int currentStation) {
 
-        station.setNumberStation(numberStation);
+        station.setNumberStation(currentStation);
 
         int actual = station.getNumberStation();
 
         Assertions.assertEquals(expected, actual);
     }
 
-
     @ParameterizedTest
     @CsvSource({
             "8,7",
             "0,9",
-            "1,0",
-//            "0,-1",
-//            "0,-3",
-//            "0,10"
+            "1,0"
     })
     public void playNextStationDefaultAmountStations(int expected, int currentStation) {
 
@@ -70,9 +66,7 @@ public class RadioTest {
             "10,9",
             "19,18",
             "1,0",
-            "0,19",
-//            "0,20",
-//            "0,21"
+            "0,19"
     })
     public void playNextStationUserSelectsAmountStations(int expected, int currentStation) {
         Radio station = new Radio(20);
@@ -125,14 +119,12 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-
     @ParameterizedTest
     @CsvSource({
             "3,2",
             "11,10",
             "100,99",
             "100,100",
-            "100,102",
             "1,0",
             "2,1"
     })
@@ -154,7 +146,6 @@ public class RadioTest {
             "0,0",
             "9,10",
             "99,100",
-//            "99,102",
             "98,99",
             "0,-1"
     })
@@ -168,6 +159,4 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
-
-
 }
